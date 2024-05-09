@@ -1,0 +1,1 @@
+## A wrapper for Selenium WebDriver (ChromeDriver) to interact with Chrome in Python.
