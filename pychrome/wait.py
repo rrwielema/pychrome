@@ -91,7 +91,7 @@ class Wait:
             if not target:
                 continue
             if text in target[0].text:
-                return target
+                return target[0]
             total_time += 0.2
             if total_time >= timeout:
                 raise TimeoutException
@@ -101,7 +101,7 @@ class Wait:
                                                 by: By = By.CSS_SELECTOR, timeout: int = None,
                                                 timeout_setting: Union[int, TimeoutSetting] = None
                                                 ) -> Union[WebElement, None]:
-        element = (by, selector) if isinstance(selector, str) else selector
+        element = (str(by), selector) if isinstance(selector, str) else selector
         return self._wait.until(EC.text_to_be_present_in_element_attribute(element, attribute, text))
 
     @_timeout_manager

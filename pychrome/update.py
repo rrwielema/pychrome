@@ -36,7 +36,13 @@ def version_is_compatible() -> bool:
         chrome_version[2] == chromedriver_version[2],
         int(chrome_version[3]) >= int(chromedriver_version[3])
     ]
-    return all(conditions)
+    if all(conditions):
+        return True
+    if all(conditions[:-1]):
+        print('Chromedriver version is outdated')
+    if int(chrome_version[3]) < int(chromedriver_version[3]):
+        print('Update your Google Chrome browser through the browser settings')
+    return False
 
 
 def get_latest_chromedriver_version() -> str:
@@ -48,10 +54,10 @@ def extract_zip_file():
     with ZipFile(CHROMEDRIVER_ZIP_FILE, 'r') as z:
         z.extractall(PYCHROME_FOLDER)
     os.remove(CHROMEDRIVER_ZIP_FILE)
-    os.rename(CHROMEDRIVER_EXECUTABLE_, CHROMEDRIVER_EXECUTABLE)
-    for file in os.listdir(CHROMEDRIVER_FOLDER):
-        os.remove(os.path.join(CHROMEDRIVER_FOLDER, file))
-    os.rmdir(CHROMEDRIVER_FOLDER)
+    os.rename(TEMP_CHROMEDRIVER_EXECUTABLE, CHROMEDRIVER_EXECUTABLE)
+    for file in os.listdir(TEMP_CHROMEDRIVER_FOLDER):
+        os.remove(os.path.join(TEMP_CHROMEDRIVER_FOLDER, file))
+    os.rmdir(TEMP_CHROMEDRIVER_FOLDER)
 
 
 def download_chromedriver():

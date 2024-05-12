@@ -16,3 +16,4 @@ setup(
     packages=find_packages(),
     install_requires=['httpagentparser', 'beautifulsoup4', 'pandas', 'selenium', 'requests', 'lxml', 'numpy']
 )
+

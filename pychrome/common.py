@@ -2,10 +2,10 @@ import os
 
 
 PYCHROME_FOLDER = os.path.join(os.getenv('APPDATA'), 'pychrome')
-CHROMEDRIVER_FOLDER = os.path.join(PYCHROME_FOLDER, 'chromedriver-win32')
+TEMP_CHROMEDRIVER_FOLDER = os.path.join(PYCHROME_FOLDER, 'chromedriver-win32')
 CHROMEDRIVER_ZIP_FILE = os.path.join(PYCHROME_FOLDER, 'chromedriver.zip')
 CHROMEDRIVER_VERSION_FILE = os.path.join(PYCHROME_FOLDER, 'version.txt')
-CHROMEDRIVER_EXECUTABLE_ = os.path.join(CHROMEDRIVER_FOLDER, 'chromedriver.exe')
+TEMP_CHROMEDRIVER_EXECUTABLE = os.path.join(TEMP_CHROMEDRIVER_FOLDER, 'chromedriver.exe')
 CHROMEDRIVER_EXECUTABLE = os.path.join(PYCHROME_FOLDER, 'chromedriver.exe')
 
 LATEST_STABLE_URL = 'https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE'

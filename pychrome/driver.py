@@ -75,7 +75,7 @@ class Driver(webdriver.Chrome):
     def get_elements_by_text(self, text: str, element: WebElement = None):
         return self._get_element_by_text(text=text, root=element)
 
-    def get_shadow_root(self, selector: str, shadow_host: WebElement = None) -> ShadowRoot:
+    def get_shadow_root(self, selector: str, shadow_host: WebElement | ShadowRoot = None) -> ShadowRoot | None:
         if not shadow_host:
             shadow_host = self.get_element('body')
         element = shadow_host.find_elements(by=By.CSS_SELECTOR, value=selector)
