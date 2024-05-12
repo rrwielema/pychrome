@@ -14,7 +14,7 @@ def get_chrome_version() -> tuple:
     return version
 
 
-def get_chromedriver_version() -> tuple:
+def get_chromedriver_version() -> tuple | None:
     if not os.path.exists(CHROMEDRIVER_VERSION_FILE):
         print('No chromedriver version file found')
         return None
